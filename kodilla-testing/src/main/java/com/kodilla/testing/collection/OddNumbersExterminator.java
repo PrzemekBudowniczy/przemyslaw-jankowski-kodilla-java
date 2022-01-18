@@ -9,10 +9,11 @@ public class OddNumbersExterminator {
         List<Integer> newList = new LinkedList<>();
 
         for(Integer theNumber : numbers) {
-            if (theNumber % 2 != 0) {
+            if (theNumber % 2 == 0) {
                 newList.add(theNumber);
             }
         }
+        System.out.println(newList.toString());
         return newList;
     }
 }

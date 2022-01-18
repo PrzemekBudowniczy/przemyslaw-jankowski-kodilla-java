@@ -24,9 +24,10 @@ public class CollectionTestSuite {
         //When
         testList = OddNumbersExterminator.exterminate(testList);
         //Then
-        for(Integer theNumber : testList) {
-            Assertions.assertTrue(theNumber % 2 != 0);
-        }
+        Assertions.assertEquals(testList, Arrays.asList());
+//        for(Integer theNumber : testList) {
+//            Assertions.assertTrue(theNumber % 2 != 0);
+//        }
     }
 
     @DisplayName("Examine class when list contain odd & even numbers")
@@ -37,8 +38,6 @@ public class CollectionTestSuite {
         //When
         testList = OddNumbersExterminator.exterminate(testList);
         //Then
-        for(Integer theNumber : testList) {
-            Assertions.assertTrue(theNumber % 2 != 0);
-        }
+        Assertions.assertEquals(testList, Arrays.asList(2, 4, 6, 8, 10));
     }
 }
