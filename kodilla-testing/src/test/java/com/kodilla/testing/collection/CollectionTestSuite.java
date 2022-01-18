@@ -25,9 +25,6 @@ public class CollectionTestSuite {
         testList = OddNumbersExterminator.exterminate(testList);
         //Then
         Assertions.assertEquals(testList, Arrays.asList());
-//        for(Integer theNumber : testList) {
-//            Assertions.assertTrue(theNumber % 2 != 0);
-//        }
     }
 
     @DisplayName("Examine class when list contain odd & even numbers")
