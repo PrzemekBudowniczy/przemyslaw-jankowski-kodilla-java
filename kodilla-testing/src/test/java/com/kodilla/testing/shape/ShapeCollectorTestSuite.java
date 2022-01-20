@@ -4,9 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.commons.util.ExceptionUtils;
-
-import java.rmi.UnexpectedException;
 
 @DisplayName("TDD: Shape Test Suite")
 public class ShapeCollectorTestSuite {
@@ -89,7 +86,7 @@ public class ShapeCollectorTestSuite {
         }
 
         @Test
-        void testGetFiguresAboveRageOfListIndex() {
+        void testGetFiguresAboveRangeOfListIndex() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector("Test Collection");
             Shape theShape = new Triangle(10);
@@ -110,6 +107,16 @@ public class ShapeCollectorTestSuite {
             Throwable exception = assertThrows(IndexOutOfBoundsException.class, () -> shapeCollector.getFigure(-2));
             // Then
             assertEquals("Index -2 out of bounds for length 1", exception.getMessage());
+        }
+
+        @Test
+        void testGetFiguresWithNegativeIndex2() {
+            //Given
+            ShapeCollector shapeCollector = new ShapeCollector("Test Collection");
+            //When
+            Throwable exception = assertThrows(IndexOutOfBoundsException.class, () -> shapeCollector.getFigure(-2));
+            // Then
+            assertEquals("Index -2 out of bounds for length 0", exception.getMessage());
         }
 
         @Test
