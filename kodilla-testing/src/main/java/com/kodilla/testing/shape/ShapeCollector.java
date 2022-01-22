@@ -27,7 +27,10 @@ public class ShapeCollector {
     }
 
     public Shape getFigure(int n) {
-        return shapes.get(n);
+        if (n >= 0 && n < shapes.size()) {
+            return shapes.get(n);
+        }
+        return null;
     }
 
     public String showFigures() {

@@ -92,31 +92,23 @@ public class ShapeCollectorTestSuite {
             Shape theShape = new Triangle(10);
             shapeCollector.addFigure(theShape);
             //When
-            Throwable exception = assertThrows(IndexOutOfBoundsException.class, () -> shapeCollector.getFigure(1));
+            Shape retrievedShape = shapeCollector.getFigure(1);
+//            Throwable exception = assertThrows(IndexOutOfBoundsException.class, () -> shapeCollector.getFigure(1));
             // Then
-            assertEquals("Index 1 out of bounds for length 1", exception.getMessage());
+            assertNull(retrievedShape);
+//            assertEquals("Index 1 out of bounds for length 1", exception.getMessage());
         }
 
         @Test
         void testGetFiguresWithNegativeIndex() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector("Test Collection");
-            Shape theShape = new Triangle(10);
-            shapeCollector.addFigure(theShape);
             //When
-            Throwable exception = assertThrows(IndexOutOfBoundsException.class, () -> shapeCollector.getFigure(-2));
+            Shape retrievedShape = shapeCollector.getFigure(-1);
+//            Throwable exception = assertThrows(IndexOutOfBoundsException.class, () -> shapeCollector.getFigure(-2));
             // Then
-            assertEquals("Index -2 out of bounds for length 1", exception.getMessage());
-        }
-
-        @Test
-        void testGetFiguresWithNegativeIndex2() {
-            //Given
-            ShapeCollector shapeCollector = new ShapeCollector("Test Collection");
-            //When
-            Throwable exception = assertThrows(IndexOutOfBoundsException.class, () -> shapeCollector.getFigure(-2));
-            // Then
-            assertEquals("Index -2 out of bounds for length 0", exception.getMessage());
+            assertNull(retrievedShape);
+//            assertEquals("Index -2 out of bounds for length 0", exception.getMessage());
         }
 
         @Test
