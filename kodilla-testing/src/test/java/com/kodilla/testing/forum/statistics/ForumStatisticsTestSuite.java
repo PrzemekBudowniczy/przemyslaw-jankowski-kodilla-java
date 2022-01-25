@@ -55,8 +55,6 @@ public class ForumStatisticsTestSuite {
 
         //When
         calculateStats.calculateAdvStatistics(statisticsMock);
-        System.out.println("users: " + calculateStats.getNumberOfUsers() + ", posts: " + calculateStats.getNumberOfPosts() + ", comments: " + calculateStats.getNumberOfComments());
-        System.out.println("averagePostsPerUser: " + calculateStats.getAveragePostsPerUser() + ", averageCommentsPerUser: " + calculateStats.getAverageCommentsPerUser() + ", averageCommentsPerPost: " + calculateStats.getAverageCommentsPerPost());
 
         //Then
         assertEquals(200, calculateStats.getAveragePostsPerUser());
