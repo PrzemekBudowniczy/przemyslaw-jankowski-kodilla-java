@@ -1,8 +1,12 @@
 package com.kodilla.stream;
 
+import com.kodilla.stream.beautifier.PoemBeautifier;
+import com.kodilla.stream.beautifier.PoemDecorator;
 import com.kodilla.stream.lambda.ExpressionExecutor;
 import com.kodilla.stream.lambda.Processor;
 import com.kodilla.stream.reference.FunctionalCalculator;
+
+import java.util.Locale;
 
 public class StreamMain {
     public static void main(String[] args) {
@@ -23,5 +27,15 @@ public class StreamMain {
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::addAToB);
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
+
+        PoemBeautifier poemBeautifier = new PoemBeautifier();
+        String textToDecor = "Casual Common Text";
+        System.out.println("\nString set at start: " + textToDecor);
+
+        System.out.println("Decorating");
+        poemBeautifier.beautify(textToDecor, (text) -> "ABC" + text + "ABC");
+        poemBeautifier.beautify(textToDecor, (text) -> text.toUpperCase());
+        poemBeautifier.beautify(textToDecor, (text) -> text.toLowerCase());
+        poemBeautifier.beautify(textToDecor, (text) -> text.repeat(5));
     }
 }
