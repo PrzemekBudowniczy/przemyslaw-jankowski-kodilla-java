@@ -30,7 +30,7 @@ public class ExceptionModuleRunner {
 //        ExceptionHandling exceptionHandlingFalse = new ExceptionHandling();
 //        exceptionHandlingFalse.testTwoNumbersWithDefinedLogic(1.5, 0);
 
-        Flight theFlight = new Flight("Warszawa", "Liege");
+        Flight theFlight = new Flight("Warszawa", "Krakow");
         SearchFlight searchFlight = new SearchFlight();
         try {
             searchFlight.findFlight(theFlight);
