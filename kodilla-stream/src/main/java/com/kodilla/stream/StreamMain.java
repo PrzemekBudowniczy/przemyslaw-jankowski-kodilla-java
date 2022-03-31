@@ -24,22 +24,22 @@ import java.util.stream.Collectors;
 public class StreamMain {
     public static void main(String[] args) {
 
-        Forum theForum = new Forum();
-        Map<Integer, ForumUser> theResultForumUsers = theForum.getUserList().stream()
-                .filter(gender -> gender.getGender() == 'M')
-                .filter(age -> (ChronoUnit.YEARS.between(age.getDateOfBirth(), LocalDate.now()) >= 20))
-                .filter(posts -> posts.getNumberOfPosts() >= 1)
-                .collect(Collectors.toMap(ForumUser::getUserID, user -> user));
-
-        System.out.println(theResultForumUsers.values());
-
-//        BookDirectory theBookDirectory = new BookDirectory();
-//        String theResultStringOfBooks = theBookDirectory.getList().stream()
-//                .filter(book -> book.getYearOfPublication() > 2005)
-//                .map(Book::toString)
-//                .collect(Collectors.joining(",\n","<<",">>"));
+//        Forum theForum = new Forum();
+//        Map<Integer, ForumUser> theResultForumUsers = theForum.getUserList().stream()
+//                .filter(gender -> gender.getGender() == 'M')
+//                .filter(age -> (ChronoUnit.YEARS.between(age.getDateOfBirth(), LocalDate.now()) >= 20))
+//                .filter(posts -> posts.getNumberOfPosts() >= 1)
+//                .collect(Collectors.toMap(ForumUser::getUserID, user -> user));
 //
-//        System.out.println(theResultStringOfBooks);
+//        System.out.println(theResultForumUsers.values());
+
+        BookDirectory theBookDirectory = new BookDirectory();
+        String theResultStringOfBooks = theBookDirectory.getList().stream()
+                .filter(book -> book.getYearOfPublication() > 2005)
+                .map(Book::toString)
+                .collect(Collectors.joining(",\n","<<",">>"));
+
+        System.out.println(theResultStringOfBooks);
 
 //        BookDirectory theBookDirectory = new BookDirectory();
 //        List<Book> theResultListOfBooks = theBookDirectory.getList().stream()
