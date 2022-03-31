@@ -19,7 +19,7 @@ public class SearchFlight {
         String destinationAirport = flight.getArrivalAirport();
         String departureAirport = flight.getDepartureAirport();
 
-        if(destinationAirport == departureAirport) {
+        if(destinationAirport.equals(departureAirport)) {
             System.out.println("You can't define two the same cities.");
             return;
         }
