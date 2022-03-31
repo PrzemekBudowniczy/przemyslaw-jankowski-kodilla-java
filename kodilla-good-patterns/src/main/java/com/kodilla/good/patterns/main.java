@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns;
 
-import com.kodilla.good.patterns.challanges.MovieStar;
+import com.kodilla.good.patterns.challanges.*;
 
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
@@ -14,17 +14,23 @@ public class main {
 
     public static void main(String[] args) {
 
-        MovieStar movieStar = new MovieStar();
-        String movieList = movieStar.getMovies().entrySet().stream()
-                .map(e -> e.getKey() + e.getValue().toString())
-                .collect(Collectors.joining("!"));
+//        MovieStar movieStar = new MovieStar();
+//        String movieList = movieStar.getMovies().entrySet().stream()
+//                .map(e -> e.getKey() + e.getValue().toString())
+//                .collect(Collectors.joining("!"));
+//
+//        try {
+//            System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out), true, "UTF-8"));
+//        } catch (UnsupportedEncodingException e) {
+//            throw new InternalError("Machine does not support mandatory encoding UTF-8");
+//        }
+//
+//        System.out.println(movieList);
 
-        try {
-            System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out), true, "UTF-8"));
-        } catch (UnsupportedEncodingException e) {
-            throw new InternalError("Machine does not support mandatory encoding UTF-8");
-        }
+        OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
+        OrderRequest orderRequest = orderRequestRetriever.retrieve();
 
-        System.out.println(movieList);
+        OrderProcessor orderProcessor = new OrderProcessor(new MailService(), new HomeOfficeOrder(), new HomeOfficeRepository());
+        orderProcessor.process(orderRequest);
     }
 }
