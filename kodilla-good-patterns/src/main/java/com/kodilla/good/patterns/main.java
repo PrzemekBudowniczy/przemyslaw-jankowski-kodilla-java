@@ -1,14 +1,8 @@
 package com.kodilla.good.patterns;
 
-import com.kodilla.good.patterns.challanges.*;
-
-import java.io.FileDescriptor;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.*;
+import com.kodilla.good.patterns.food2Door.Order;
+import com.kodilla.good.patterns.food2Door.OrderProcessor;
+import com.kodilla.good.patterns.food2Door.TestDataGenerator;
 
 public class main {
 
@@ -27,10 +21,17 @@ public class main {
 //
 //        System.out.println(movieList);
 
-        OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
-        OrderRequest orderRequest = orderRequestRetriever.retrieve();
+//        OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
+//        OrderRequest orderRequest = orderRequestRetriever.retrieve();
+//
+//        OrderProcessor orderProcessor = new OrderProcessor(new MailService(), new HomeOfficeOrder(), new HomeOfficeRepository());
+//        orderProcessor.process(orderRequest);
 
-        OrderProcessor orderProcessor = new OrderProcessor(new MailService(), new HomeOfficeOrder(), new HomeOfficeRepository());
-        orderProcessor.process(orderRequest);
+        TestDataGenerator testData = new TestDataGenerator();
+        Order order = new Order(testData.getTheUser(), "2022.04.10", "2022.04.11");
+        order.addProductToBasket(testData.getExtraFoodShop_product1(), 5);
+        order.addProductToBasket(testData.getHealthyShop_product5(), 2);
+        OrderProcessor orderProcessor = new OrderProcessor();
+        orderProcessor.processTheOrder(order);
     }
 }
