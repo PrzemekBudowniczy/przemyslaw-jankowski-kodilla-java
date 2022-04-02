@@ -30,12 +30,12 @@ public class main {
 //        OrderProcessor orderProcessor = new OrderProcessor(new MailService(), new HomeOfficeOrder(), new HomeOfficeRepository());
 //        orderProcessor.process(orderRequest);
 
-//        TestDataGenerator testData = new TestDataGenerator();
-//        Order order = new Order(testData.getTheUser(), "2022.04.10", "2022.04.11");
-//        order.addProductToBasket(testData.getExtraFoodShop_product1(), 5);
-//        order.addProductToBasket(testData.getHealthyShop_product5(), 2);
-//        OrderProcessor orderProcessor = new OrderProcessor();
-//        orderProcessor.processTheOrder(order);
+        TestDataGenerator testData = new TestDataGenerator();
+        Order order = new Order(testData.getTheUser(), "2022.04.10", "2022.04.11");
+        order.addProductToBasket(testData.getExtraFoodShop_product1(), 5);
+        order.addProductToBasket(testData.getHealthyShop_product5(), 2);
+        OrderProcessor orderProcessor = new OrderProcessor();
+        orderProcessor.processTheOrder(order);
 
         TestData flightServiceTestData = new TestData();
         FlightsCatalogue flights = flightServiceTestData.generateTestData();
