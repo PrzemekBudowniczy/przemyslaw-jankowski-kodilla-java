@@ -8,7 +8,6 @@ public class OrderProcessor {
     List<ProductWrapper> producer1ExtraFoodShop = new ArrayList<>();
     List<ProductWrapper> producer2GlutenFreeShop = new ArrayList<>();
     List<ProductWrapper> producer3HealthyShop = new ArrayList<>();
-    //    Order theOrder;
     Producer_ExtraFoodShop producer1;
     Producer_GlutenFreeShop producer2;
     Producer_HealthyShop producer3;
@@ -17,7 +16,6 @@ public class OrderProcessor {
 
     public OrderProcessor() {
         basketsForAllProducers = new HashMap<>();
-//        theOrder = new Order(user, dateOfOrder, dateOfDelivery);
         producer1 = new Producer_ExtraFoodShop();
         producer2 = new Producer_GlutenFreeShop();
         producer3 = new Producer_HealthyShop();
@@ -35,7 +33,7 @@ public class OrderProcessor {
         int producerID;
 
         for (ProductWrapper theProductWrapper : products) {
-            producerID = theProductWrapper.getProduct().producerID;
+            producerID = theProductWrapper.getProduct().getProducerID();
             basketsForAllProducers.get(producerID).add(theProductWrapper);
         }
     }

@@ -5,9 +5,9 @@ import java.util.Objects;
 
 public class Flight {
 
-    String departureAirport;
-    String destinationAirport;
-    Duration flightDuration;
+    private String departureAirport;
+    private String destinationAirport;
+    private Duration flightDuration;
 
     public Flight(String departureAirport, String destinationAirport, int flightDuration) {
         this.departureAirport = departureAirport;

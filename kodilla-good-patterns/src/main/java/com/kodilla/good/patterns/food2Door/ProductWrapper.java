@@ -2,8 +2,8 @@ package com.kodilla.good.patterns.food2Door;
 
 public class ProductWrapper {
 
-    Product product;
-    int quantity;
+    private Product product;
+    private int quantity;
 
     public ProductWrapper(Product product, int quantity) {
         this.product = product;

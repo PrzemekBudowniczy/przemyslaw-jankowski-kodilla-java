@@ -2,9 +2,9 @@ package com.kodilla.good.patterns.food2Door;
 
 public class Product {
 
-    int producerID;
-    String productName;
-    String productID;
+    private int producerID;
+    private String productName;
+    private String productID;
 
     public Product(int producer, String productName, String productID) {
         this.producerID = producer;

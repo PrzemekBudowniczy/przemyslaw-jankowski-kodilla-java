@@ -2,6 +2,7 @@ package com.kodilla.good.patterns.food2Door;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -9,15 +10,15 @@ import java.util.List;
 public class Order {
 
     private User user;
-    Date dateOfOrder;
-    Date dateForDelivery;
-    List<ProductWrapper> products = new ArrayList<>();
+    private LocalDate dateOfOrder;
+    private LocalDate dateForDelivery;
+    private List<ProductWrapper> products = new ArrayList<>();
 
-    public Order(User user, String dateOfOrder, String dateForDelivery) {
+    public Order(User user, LocalDate dateOfOrder, LocalDate dateForDelivery) {
         this.user = user;
         try {
-            this.dateOfOrder = new SimpleDateFormat("yyyy.MM.dd").parse(dateOfOrder);
-            this.dateForDelivery = new SimpleDateFormat("yyyy.MM.dd").parse(dateForDelivery);
+            this.dateOfOrder = dateOfOrder;
+            this.dateForDelivery = dateForDelivery;
         } catch (Exception e) {
             throw new RuntimeException();
         }

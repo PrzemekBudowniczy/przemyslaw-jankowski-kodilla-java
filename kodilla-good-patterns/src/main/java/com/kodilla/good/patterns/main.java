@@ -7,6 +7,8 @@ import com.kodilla.good.patterns.food2Door.Order;
 import com.kodilla.good.patterns.food2Door.OrderProcessor;
 import com.kodilla.good.patterns.food2Door.TestDataGenerator;
 
+import java.time.LocalDate;
+
 public class main {
 
     public static void main(String[] args) {
@@ -31,11 +33,13 @@ public class main {
 //        orderProcessor.process(orderRequest);
 
         TestDataGenerator testData = new TestDataGenerator();
-        Order order = new Order(testData.getTheUser(), "2022.04.10", "2022.04.11");
+        Order order = new Order(testData.getTheUser(), LocalDate.of(2022, 04, 10), LocalDate.of(2022, 04, 11));
         order.addProductToBasket(testData.getExtraFoodShop_product1(), 5);
         order.addProductToBasket(testData.getHealthyShop_product5(), 2);
         OrderProcessor orderProcessor = new OrderProcessor();
         orderProcessor.processTheOrder(order);
+
+        System.out.println("\n");
 
         TestData flightServiceTestData = new TestData();
         FlightsCatalogue flights = flightServiceTestData.generateTestData();

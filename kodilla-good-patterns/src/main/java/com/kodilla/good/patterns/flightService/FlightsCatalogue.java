@@ -4,13 +4,15 @@ import java.util.*;
 
 public class FlightsCatalogue {
 
-    Map<String, Flight> flights = new HashMap<>();
-    List<Flight> simpleSearchResult;
-    List<SearchFlightWrapperForTransfer> searchFlightWrapperForTransfer;
+    private Map<String, Flight> flights = new HashMap<>();
 
     public void addFlight(String departureAirport, String destinationAirport, int flightDuration) {
         Flight flight = new Flight(departureAirport, destinationAirport, flightDuration);
         flights.put(flight.getConnectionName(), flight);
+    }
+
+    public Map<String, Flight> getFlights() {
+        return flights;
     }
 
     @Override
