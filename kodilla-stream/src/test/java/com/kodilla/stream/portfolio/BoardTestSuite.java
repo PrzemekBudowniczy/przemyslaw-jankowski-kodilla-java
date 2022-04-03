@@ -79,29 +79,29 @@ class BoardTestSuite {
         assertEquals(2, longTasks);
     }
 
-    @Test
-    void testAddTaskListAverageWorkingOnTask() {
-        //Given
-        Board project = prepareTestData();
-
-        //When
-        List<TaskList> inProgressTasks = new ArrayList<>();
-        inProgressTasks.add(new TaskList("In progress"));
-        List<Integer> daysForInProgressTasks = project.getTaskLists().stream()
-                .filter(inProgressTasks::contains)
-                .flatMap(tl -> tl.getTasks().stream())
-                .map(Task::getCreated)
-                .map(t -> LocalDate.now().compareTo(t))
-                .collect(Collectors.toList());
-
-        double averageDaysForInProgressTasks = IntStream.range(0, daysForInProgressTasks.size())
-                .map(a -> daysForInProgressTasks.get(a))
-                .average().getAsDouble();
-
-        //Then
-        assertEquals(10, averageDaysForInProgressTasks);
-        assertEquals(3, daysForInProgressTasks.size());
-    }
+//    @Test
+//    void testAddTaskListAverageWorkingOnTask() {
+//        //Given
+//        Board project = prepareTestData();
+//
+//        //When
+//        List<TaskList> inProgressTasks = new ArrayList<>();
+//        inProgressTasks.add(new TaskList("In progress"));
+//        List<Integer> daysForInProgressTasks = project.getTaskLists().stream()
+//                .filter(inProgressTasks::contains)
+//                .flatMap(tl -> tl.getTasks().stream())
+//                .map(Task::getCreated)
+//                .map(t -> LocalDate.now().compareTo(t))
+//                .collect(Collectors.toList());
+//
+//        double averageDaysForInProgressTasks = IntStream.range(0, daysForInProgressTasks.size())
+//                .map(a -> daysForInProgressTasks.get(a))
+//                .average().getAsDouble();
+//
+//        //Then
+//        assertEquals(10, averageDaysForInProgressTasks);
+//        assertEquals(3, daysForInProgressTasks.size());
+//    }
 
     private Board prepareTestData() {
         //users
