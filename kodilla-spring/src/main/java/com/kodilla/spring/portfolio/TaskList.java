@@ -19,12 +19,6 @@ public class TaskList {
         tasks.add(task);
     }
 
-    //    @Override
-//    public String toString() {
-//        return "TaskList{" +
-//                "tasks=" + tasks +
-//                '}';
-//    }
     @Override
     public String toString() {
         String result = new String();
