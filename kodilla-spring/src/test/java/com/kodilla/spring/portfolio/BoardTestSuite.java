@@ -2,10 +2,12 @@ package com.kodilla.spring.portfolio;
 
 import com.kodilla.spring.reader.Reader;
 import com.kodilla.spring.reader.ReaderConfig;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class BoardTestSuite {
@@ -34,8 +36,8 @@ public class BoardTestSuite {
         board.toDoList.addTask("addedRecordTo - toDoList");
 
         //Then
-        System.out.println(board.doneList.toString());
-        System.out.println(board.inProgressList.toString());
-        System.out.println(board.toDoList.toString());
+        assertEquals("addedRecordTo - doneList", board.doneList.toString());
+        assertEquals("addedRecordTo - inProgressList", board.inProgressList.toString());
+        assertEquals("addedRecordTo - toDoList", board.toDoList.toString());
     }
 }
