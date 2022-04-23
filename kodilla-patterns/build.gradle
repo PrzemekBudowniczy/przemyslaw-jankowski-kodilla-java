@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.kodilla'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '17'
 
 repositories {
     mavenCentral()
@@ -27,4 +27,8 @@ tasks.named('test') {
 
 task prepareKotlinBuildScriptModel {
 
+}
+
+compileJava {
+    options.compilerArgs += ['--enable-preview']
 }

@@ -27,3 +27,7 @@ bootJar {
 jar {
     enabled = true
 }
+
+compileJava {
+    options.compilerArgs += ['--enable-preview']
+}
