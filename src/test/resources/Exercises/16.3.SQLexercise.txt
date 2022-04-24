@@ -1,0 +1,45 @@
+CREATE TABLE ISSUESLISTS
+(
+    ID SERIAL PRIMARY KEY,
+    NAME VARCHAR(1024) CHARSET utf8 NOT NULL,
+);
+
+CREATE TABLE ISSUES
+(
+    ID SERIAL PRIMARY KEY,
+    ISSUESLIST_ID BIGINT UNSIGNED NOT NULL,
+    SUMMARY VARCHAR(1024) CHARSET utf8 NOT NULL,
+    DESCRIPTION VARCHAR(1024) CHARSET utf8 NOT NULL,
+    USER_ID_ASSIGNEDTO BIGINT UNSIGNED NOT NULL,
+    FOREIGN KEY (ISSUESLIST_ID) REFERENCES ISSUESLISTS (ID),
+    FOREIGN KEY (USER_ID_ASSIGNEDTO) REFERENCES USERS(ID)
+);
+
+SELECT * FROM ISSUESLISTS;
+SELECT * FROM ISSUES;
+
+INSERT INTO ISSUESLISTS (NAME)
+VALUES
+       ("ToDo"),
+       ("In progress"),
+       ("Done");
+
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO)
+VALUES
+    (1, "record 1 for ToDo", "desciption 1 for ToDo", 1),
+    (1, "record 2 for ToDo", "desciption 2 for ToDo", 2),
+    (1, "record 3 for ToDo", "desciption 3 for ToDo", 3),
+    (1, "record 4 for ToDo", "desciption 4 for ToDo", 4),
+    (1, "record 5 for ToDo", "desciption 5 for ToDo", 5),
+    (2, "record 1 for In progress", "desciption 1 for In progress", 1),
+    (2, "record 2 for In progress", "desciption 2 for In progress", 2),
+    (2, "record 3 for In progress", "desciption 3 for In progress", 3),
+    (2, "record 4 for In progress", "desciption 4 for In progress", 4),
+    (2, "record 5 for In progress", "desciption 5 for In progress", 5),
+    (3, "record 1 for Done", "desciption 1 for Done", 1),
+    (3, "record 2 for Done", "desciption 2 for Done", 2),
+    (3, "record 3 for Done", "desciption 3 for Done", 3),
+    (3, "record 4 for Done", "desciption 4 for Done", 4),
+    (3, "record 5 for Done", "desciption 5 for Done", 5);
+
+COMMIT;
